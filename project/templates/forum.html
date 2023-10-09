@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Forum
+{% endblock %}
+
+{% block main %}
+
+    <section class="section-forum">
+        <hr>
+        <h1 class="center" style="color: white;">Silver Guide's Forum</h1>
+        <hr>
+        <div class="forms-card center">
+            <form action="/forum" method="post">
+                <input type="text" id="chat" name="chat" placeholder="Type Comment..">
+                <input type="submit" value="Submit"><br>
+            </form>
+        </div>
+        <hr>
+
+        <div class="forms-card center">
+            {% for dm in text %}
+                <div class="text-box">
+                    <p class="message">{{ dm.message }} </p>
+                    <p class="spec">{{ dm.name }}- {{ dm.date }}</p>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+{% endblock %}
+
+

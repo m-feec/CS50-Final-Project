@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Forum
+{% endblock %}
+
+{% block main %}
+    <section class="section hidden">
+        <h1 style="margin-bottom: 3%; font-family: Helvetica;">Log in <br></h1>
+        <div class="forms-card">
+            <form action="/login" method="post">
+                <label class="label">Username</label>
+                <input type="text" id="username" name="username" placeholder="Type Username..">
+
+                <label class="label">Password</label>
+                <input type="password" id="password" name="password" placeholder="Type Password..">
+
+                <input type="submit" value="Log in"><br>
+                <h8>Don't have an account? Sign up <a class= link-register href="register">Here</a> !</h8>
+            </form>
+        </div>
+        <div>
+            <br>
+        </div>
+    </section>
+{% endblock %}

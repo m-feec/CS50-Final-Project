@@ -1,0 +1,596 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+/*navbar */
+/* Big help from https://www.youtube.com/watch?v=At4B7A4GOPg - Web Dev Simplified +
+Kevin Powell with https://www.youtube.com/watch?v=HbBMp6yUXO0&t=405s and
+https://www.w3schools.com/css/css_navbar.asp from w3schools.com */
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: black;
+    color: white;
+}
+
+.nav-title {
+    font-size: 1.5rem;
+    margin-left: 4rem;
+    padding: 1.25rem;
+    font-family: "Franklin Gothic Medium";
+}
+
+.nav-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 2rem;
+    display: block;
+}
+
+.nav-settings {
+    position: absolute;
+    right: 5%;
+}
+
+.nav-links li:hover {
+    background-color: #222;
+}
+
+.burger-button {
+    position: absolute;
+    top: 2.5rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.burger-button .foo {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+@media (max-width: 640px) {
+    .burger-button {
+        display: flex;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: none
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        background: black;
+    }
+
+    .nav-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        text-align: center;
+    }
+
+    .nav-links li a {
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+        display: block;
+    }
+
+    .nav-title {
+        margin-left: 2rem;
+    }
+
+    .nav-settings {
+        position: static;
+        right: 0;
+    }
+
+}
+
+/*page decoration with scroll */
+/* https://www.youtube.com/watch?v=T33NN_pPeNI - Beyond Fireship With understending of Grid from https://www.w3schools.com/css/css_grid.asp*/
+body {
+    background-color: #111;
+}
+.bg1 {
+    background: url(/static/pics/bg.jpg) no-repeat center fixed;
+    height: 150%;
+    background-size: cover;
+}
+
+.section-card {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-family: "monaco";
+    text-align: center;
+
+}
+
+.section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-family: "monaco";
+    text-align: center;
+
+}
+
+.title-section {
+    display: grid;
+    place-items: center;
+    align-content: space-around;
+    text-align: center;
+    min-height: 100vh;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-family: "monaco";
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 2s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+p {
+    color: white;
+    text-shadow: 1px 1px #111;
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: 250%;
+}
+
+/*responsive chart for index page */
+.responsive-chart {
+    width: 50%;
+}
+
+@media (max-width: 640px) {
+    .section-card {
+        display: grid;
+    }
+
+    .responsive-chart {
+        width: 100%;
+    }
+}
+
+/* cards */
+/* multicard section */
+/*Great look of an card from https://www.youtube.com/watch?v=hv0rNxr1XXk&t=1s - Online Tutorials Learning about new tags and how to use them*/
+.section-card .card {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.section-card .card .content {
+    padding: 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.section-card .card .content h1 {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 6em;
+    color: rgba(255, 255, 255, 0.25);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.section-card .card .content h2 {
+    font-size: 2em;
+    padding: 10px;
+}
+
+.section-card .card .content h3 {
+    font-weight: 300;
+}
+
+/*This one card section in index page*/
+.section .card {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.section .card .content {
+    padding: 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.section .card .content h1 {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 6em;
+    color: rgba(255, 255, 255, 0.25);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.section .card .content h2 {
+    font-size: 2em;
+    padding: 10px;
+}
+
+.section .card .content h3 {
+    font-weight: 300;
+}
+
+/* style bottom of index page*/
+.last {
+    position: relative;
+    width: 280px;
+    height: 300px;
+    margin: 30px;
+}
+
+.button-link {
+    background-color: rgba(255, 255, 255, 0.07);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+/* each card animation */
+/* https://www.youtube.com/watch?v=T33NN_pPeNI - Beyond Fireship with specification from https://www.w3schools.com/cssref/sel_nth-child.php */
+.card:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+.card:nth-child(3) {
+    transition-delay: 400ms;
+}
+
+/*Big 6 page css */
+/*https://www.youtube.com/watch?v=5DEq5cWNYt8&t=2483s - another look at cards  with Kevin Powell*/
+
+.bg2 {
+    background: url(/static/pics/bg3.jpg) no-repeat center fixed;
+    height: 100%;
+    background-size: cover;
+}
+
+.big6-content img {
+
+    opacity: 0.85;
+}
+
+.section-big6 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-height: 50vh;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-family: "monaco";
+    text-align: center;
+    background-color:
+
+}
+
+.section-big6 .card {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+
+    transition: transform 500ms ease;
+}
+
+.section-big6 .card .big6-content {
+    padding: 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.section-big6 .card .big6-content h1 {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 4em;
+    color: rgba(255, 255, 255, 0.25);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.section-big6 .card .big6-content h2 {
+    font-size: 2em;
+    padding: 10px;
+}
+
+.responsive-coin {
+    width: 80%;
+}
+
+@media (max-width: 640px) {
+    .section-big6 {
+        display: grid;
+    }
+
+    .responsive-coin {
+        width: 100%;
+    }
+
+}
+
+/*Text hover on cards in big 6 page*/
+/*https://www.youtube.com/watch?v=5DEq5cWNYt8&t=2483s - hover with Kevin Powell*/
+
+.text-hover {
+    padding-top: 50%;
+    background: linear-gradient(
+        hsl(0 0% 0% / 0),
+        hsl(20 0% 0% / 0.2) 10%,
+        hsl(0 0% 0% / 1)
+    );
+    padding: 1.5em;
+    border-radius: 5%;
+
+    transform: translateY(70%);
+    transition: transform 500ms ease;
+
+}
+
+.card:hover .text-hover {
+    transform: translateY(0);
+}
+
+.text-hover p {
+    padding-top: 10%;
+    letter-spacing: 2%;
+    line-height: 1.2rem;
+    color: white;
+
+}
+
+
+.coin-big6 {
+    background-size: 15rem;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+}
+
+/* Animation for hover cards*/
+/*https://www.youtube.com/watch?v=5DEq5cWNYt8&t=2483s -   with Kevin Powell*/
+
+.section-big6 .card:hover {
+    transform: scale(1.05);
+}
+
+/* card for click*/
+.card-hover {
+    transform: translateY(0);
+}
+
+.big6-p {
+    padding-top: 10%;
+}
+
+.center {
+    text-align: center;
+    color:#c8bcac;
+}
+
+/*Log in form*/
+/*https://www.w3schools.com/css/css_form.asp*/
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #666;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #777;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #666;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #777;
+}
+
+.forms-card {
+    border-radius: 5px;
+    background-color: #222;
+    padding: 20px;
+    max-width: 640px;
+    width: 80%
+}
+
+
+
+input[type=submit] {
+    width: 30%;
+    background-color: #333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid #666;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type=submit]:hover {
+    background-color: #555;
+}
+
+.label {
+    font-size: 1.5rem;
+}
+
+.link-register {
+    color: #888;
+}
+
+.link-register:hover {
+    color: lightgray;
+}
+
+
+@media (max-width: 640px) {
+
+    input[type=submit] {
+        width: 30%;
+    }
+    .forms-card {
+        width: 100%;
+    }
+}
+
+/*Conversation section in Forum*/
+.section-forum {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.text-box {
+    border-radius: 5px;
+    border: 1px solid #666;
+    background: #333;
+    margin-bottom: 2%;
+    width: 100%;
+    max-height: 100vh;
+
+}
+
+.message {
+    font-size: 1rem;
+    text-align: left;
+    margin-left: 10%;
+
+}
+
+.spec {
+    font-size: 0.75rem;
+    color: gray;
+    text-align: right;
+    margin-right: 5%;
+}
+
+/*About section*/
+.button-link-a {
+    color:gray;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 25px;
+}
+
+.button-link-a:hover {
+    color: #444;
+}
+
+.bg4 {
+    background: url(/static/pics/bg4.jpg) no-repeat center fixed;
+    height: 150%;
+    background-size: cover;
+}
+
+.about-card {
+    border-radius: 5px;
+    background-color: rgba(40, 40, 40, 0.95);
+    padding: 20px;
+    max-width: 640px;
+    width: 80%;
+    
+}
